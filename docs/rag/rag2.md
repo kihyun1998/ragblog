@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# ACRA Point 메뉴얼 RAG 도입기
+# ACRA Point 메뉴얼 RAG 도입기 - 1
 
 ## 관리자 메뉴얼 RAG 도입 배경
 ---
@@ -36,8 +36,8 @@ Vector Store로는 FAISS를 사용했습니다.
 ### Gemini-1.5-Flash
 
 LLM 모델은 최종적으로 `Gemini-1.5-Flash`를 사용했습니다.  
-많고 많은 모델 중 왜 `Gemini-1.5-Flash`를 사용했냐면 ... 모릅니다. 무료여서? Chrome AI 때문에?
-
+Gemini를 사용한 이유는 Chrome AI를 이용하여서 서버에 GPU가 없더라도 AI를 이용할 수 있는 방법을 선택했습니다.  
+Chrome AI 사용을 위해 Gemini 시리즈를 중에서 사용해야하는데 그 중 `Gemini-1.5-Flash`는 당시 과금되지 않는 모델 중 성능이 제일 뛰어나서 선택하게 됐습니다.
 
 ## 초기 구현과 시행착오
 ---
@@ -59,6 +59,8 @@ PDF를 불러오고 Chunk를 분할할 때 메타데이터도 넣을 수 있어�
 
 그래서 그냥 평문으로 다 작성하기로 했습니다.
 
+### 초기 구현에서 개선
+
 예를 들어서 아래와 같은 표가 있었다고 할 때
 
 | 속성 | 값 |
@@ -75,4 +77,6 @@ PDF를 불러오고 Chunk를 분할할 때 메타데이터도 넣을 수 있어�
 ```
 
 
-이런 문서를 PDF로 만들어서 Load하고 Chunk로 나눠서 Vector Store에 저장하고 사용했을 때 답변을 잘 해줬습니다.
+이런 문서를 PDF로 만들어서 RAG를 돌리니 ChatGPT로 구현했을 때는 잘 됐습니다.  
+그러나 Gemini로 LLM모델만 바꾼 순간 문제가 생깁니다.
+
