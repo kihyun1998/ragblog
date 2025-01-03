@@ -11,7 +11,6 @@ sidebar_position: 3
 
 ![alt text](./img/rag3/image.png)
 
-
 그러나 동일한 문서와 동일한 코드에서 AI 모델을 Gemini로만 변경했을 때는 아래와 같은 답변이 왔습니다.
 
 ![alt text](./img/rag3/image1.png)
@@ -265,15 +264,38 @@ private flattenStructure(
 
 그러나 실제 결과를 로그를 찍어서 확인해보니 사용자 계정 추가에 대한 질문을 했지만 사용자와 관련있는 섹션을 가져오지 못했습니다.
 
-![alt text](./img/rag3/image2.png)
-
+```text
+[1] Score: 1.7064 | ID: 40.5 | Title: 프로세스 무결성 검사 | 
+[2] Score: 1.7006 | ID: 25.8 | Title: 차트 다운로드 |
+[3] Score: 1.6931 | ID: 11.3 | Title: 이벤트 방송 보기 |
+[4] Score: 1.6869 | ID: 26.5 | Title: 토폴로지 삭제 |
+[5] Score: 1.6794 | ID: 32.2 | Title: 노드 그룹 상세보기 |
+[6] Score: 1.6694 | ID: 35.2 | Title: 시간유형 상세보기 |
+[7] Score: 1.6570 | ID: 10.4 | Title: 제품 버전 조회 |
+[8] Score: 1.6442 | ID: 27.2 | Title: 화면 재배치 |
+[9] Score: 1.6404 | ID: 31.2 | Title: 노드 상세보기 |
+[10] Score: 1.6377 | ID: 40.4 | Title: 프로세스 상태 조회 |
+```
 
 관리자 계정에 대해서도 물어봤을 때 대답을 하지못하고 로그를 보니 문서를 가져오지 못했습니다.
+
 
 ![alt text](./img/rag3/image4.png)
 
 
-![alt text](./img/rag3/image5.png)
+```text
+[1] Score: 1.6307 | ID: 11.3 | Title: 이벤트 방송 보기 | 
+[2] Score: 1.6208 | ID: 25.8 | Title: 차트 다운로드 |
+[3] Score: 1.6208 | ID: 12.4 | Title: 세션 실시간 방송 보기 |
+[4] Score: 1.5771 | ID: 25.2 | Title: 차트 캡쳐 |
+[5] Score: 1.5738 | ID: 12.6 | Title: 세션 기록 녹화 방송 보기 |
+[6] Score: 1.5521 | ID: 14.1 | Title: 사용자 웹 로그인 현황 조회 |
+[7] Score: 1.5440 | ID: 12.1 | Title: 세션 현황 조회 |
+[8] Score: 1.5428 | ID: 26 | Title: 토폴로지 |
+[9] Score: 1.5401 | ID: 11.2 | Title: 이벤트 폴더 조회 |
+[10] Score: 1.5399 | ID: 12.5 | Title: 세션 기록 조회 |
+```
+
 
 사용자 계정에 대한 ID는 29이고 관리자 계정에 대한 ID는 28인데 두 섹션 모두 가져오지 못하고 엉뚱한 섹션을 높은점수에 가져오는 현상을 확인했습니다.
 
@@ -351,6 +373,7 @@ private flattenStructure(
 
 
 ![alt text](./img/rag3/image6.png)
+
 
 ChatGPT를 이용하니 답변을 잘 해줍니다 !
 
